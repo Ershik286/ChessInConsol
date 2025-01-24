@@ -15,7 +15,7 @@
 
 using namespace std;
 
-int error1 = 0;//выбрана не правильная фигура
+int error1 = 0;//ГўГ»ГЎГ°Г Г­Г  Г­ГҐ ГЇГ°Г ГўГЁГ«ГјГ­Г Гї ГґГЁГЈГіГ°Г 
 int error2 = 0;
 int error3 = 0;
 int error4 = 0;
@@ -23,8 +23,8 @@ int error5 = 0;
 
 const int win = 5;
 
-void Menu::set_console_color(int textColor, int backgroundColor) { //изменение цвета исходя из поданных аргументов
-	cout << "\033[48;5;" << backgroundColor << ";38;5;" << textColor << "m"; //слева цвет фона, справа текста
+void Menu::set_console_color(int textColor, int backgroundColor) { //ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГҐ Г¶ГўГҐГІГ  ГЁГ±ГµГ®Г¤Гї ГЁГ§ ГЇГ®Г¤Г Г­Г­Г»Гµ Г Г°ГЈГіГ¬ГҐГ­ГІГ®Гў
+	cout << "\033[48;5;" << backgroundColor << ";38;5;" << textColor << "m"; //Г±Г«ГҐГўГ  Г¶ГўГҐГІ ГґГ®Г­Г , Г±ГЇГ°Г ГўГ  ГІГҐГЄГ±ГІГ 
 }
 
 void Menu::reset_console_color() {
@@ -45,7 +45,7 @@ void Menu::complFigure() {
 
 			if (i % 2 != 0) {
 				if (j % 2 == 0) {
-					board[i][j] = BlackBoard;//клетки поля
+					board[i][j] = BlackBoard;//ГЄГ«ГҐГІГЄГЁ ГЇГ®Г«Гї
 				}
 				else {
 					board[i][j] = WhiteBoard;
@@ -81,7 +81,7 @@ void Menu::complFigure() {
 					board[i][j] = BlackQeen;
 				}
 			}
-			if (i == 7) { //если снизу, то умножаем наши поставленные фигуры на -1
+			if (i == 7) { //ГҐГ±Г«ГЁ Г±Г­ГЁГ§Гі, ГІГ® ГіГ¬Г­Г®Г¦Г ГҐГ¬ Г­Г ГёГЁ ГЇГ®Г±ГІГ ГўГ«ГҐГ­Г­Г»ГҐ ГґГЁГЈГіГ°Г» Г­Г  -1
 				board[i][j] = board[i][j] * -1;
 			}
 		}
@@ -91,17 +91,17 @@ void Menu::complFigure() {
 void Menu::print(int line, int colon, int error) {
 	int colorBoard = 0;
 	int colorText = 0;
-	cout << "     Для завершения нажмите Esc" << endl;
+	cout << "     Г„Г«Гї Г§Г ГўГҐГ°ГёГҐГ­ГЁГї Г­Г Г¦Г¬ГЁГІГҐ Esc" << endl;
 	if (move % 2 != 0) {
 		colorText = 196;
 		set_console_color(colorText, colorBoard);
-		cout << "            Ход красного " << endl;
+		cout << "            Г•Г®Г¤ ГЄГ°Г Г±Г­Г®ГЈГ® " << endl;
 		reset_console_color();
 	}
 	else {
 		colorText = 123;
 		set_console_color(colorText, colorBoard);
-		cout << "             Ход синего " << endl;
+		cout << "             Г•Г®Г¤ Г±ГЁГ­ГҐГЈГ® " << endl;
 		reset_console_color();
 	}
 	cout << "===================================" << endl;
@@ -186,7 +186,7 @@ void Menu::print(int line, int colon, int error) {
 		}
 	}
 
-	cout << "    Соотношение материала "; 
+	cout << "    Г‘Г®Г®ГІГ­Г®ГёГҐГ­ГЁГҐ Г¬Г ГІГҐГ°ГЁГ Г«Г  "; 
 	colorText = 196;
 	colorBoard = 0;
 	set_console_color(colorText, colorBoard);
@@ -199,19 +199,19 @@ void Menu::print(int line, int colon, int error) {
 	reset_console_color();
 
 	if (error == 1) {
-		cout << "Не верный ход! " << endl;
+		cout << "ГЌГҐ ГўГҐГ°Г­Г»Г© ГµГ®Г¤! " << endl;
 		error = 0;
 	}
 	if (error == 2) {
-		cout << "На пути союзная фигура! Ошибка " << endl;
+		cout << "ГЌГ  ГЇГіГІГЁ Г±Г®ГѕГ§Г­Г Гї ГґГЁГЈГіГ°Г ! ГЋГёГЁГЎГЄГ  " << endl;
 		error = 0;
 	}
 	if (error == 3) {
-		cout << "Не верный ход, на пути фигура! " << endl;
+		cout << "ГЌГҐ ГўГҐГ°Г­Г»Г© ГµГ®Г¤, Г­Г  ГЇГіГІГЁ ГґГЁГЈГіГ°Г ! " << endl;
 		error = 0;
 	}
 	if (error1 == 1) {
-		cout << "Не правильно выбрана фигура! Не правильный цвет" << endl;
+		cout << "ГЌГҐ ГЇГ°Г ГўГЁГ«ГјГ­Г® ГўГ»ГЎГ°Г Г­Г  ГґГЁГЈГіГ°Г ! ГЌГҐ ГЇГ°Г ГўГЁГ«ГјГ­Г»Г© Г¶ГўГҐГІ" << endl;
 		error1 = 0;
 	}
 }
@@ -235,7 +235,7 @@ int Menu::sumMaterials(int Figure, int sum) {
 	return sum;
 }
 
-void Menu::Game() {//заготовка для обработки ходов
+void Menu::Game() {//Г§Г ГЈГ®ГІГ®ГўГЄГ  Г¤Г«Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ ГµГ®Г¤Г®Гў
     int line = 0;
     int colon = 0;
 	int select = 0;
@@ -249,27 +249,8 @@ void Menu::Game() {//заготовка для обработки ходов
         int k = 0;
         print(line, colon, error);
 
-		int SumRed = 0;
-		int SumBlue = 0;
-
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
-				if (board[i][j] > 2) {
-					SumRed = sumMaterials(board[i][j], SumRed);
-				}
-				if (board[i][j] < -2) {
-					SumBlue = sumMaterials(board[i][j], SumBlue);
-				}
-			}
-		}
-		if (SumRed == 5 && SumBlue == 2) {
-			cout << "Пат по невозможности поставить мат!" << endl;
-			return;
-		}
-		if (SumRed == 2 && SumBlue == 5) {
-			cout << "Пат по невозможности поставить мат!" << endl;
-			return;
-		}
+	int SumRed = 0;
+	int SumBlue = 0;
 
         int key = _getch();
         if (key == 0xE0) {
@@ -277,19 +258,19 @@ void Menu::Game() {//заготовка для обработки ходов
                 key = _getch();
                 switch (key)
                 {
-                case 72: //стрелочка вверх
-                    line--; //вычисление строки и столбца можно сделать прямо здесь
+                case 72: //Г±ГІГ°ГҐГ«Г®Г·ГЄГ  ГўГўГҐГ°Гµ
+                    line--; //ГўГ»Г·ГЁГ±Г«ГҐГ­ГЁГҐ Г±ГІГ°Г®ГЄГЁ ГЁ Г±ГІГ®Г«ГЎГ¶Г  Г¬Г®Г¦Г­Г® Г±Г¤ГҐГ«Г ГІГј ГЇГ°ГїГ¬Г® Г§Г¤ГҐГ±Гј
 					line = line < 0 ? 7 : line;
                     break;
-                case 75://стрелочка влево
+                case 75://Г±ГІГ°ГҐГ«Г®Г·ГЄГ  ГўГ«ГҐГўГ®
                     colon--;
 					colon = colon < 0 ? 7 : colon;
                     break;
-                case 77://стрелочка вправо
+                case 77://Г±ГІГ°ГҐГ«Г®Г·ГЄГ  ГўГЇГ°Г ГўГ®
                     colon++;
 					colon = colon > 7 ? 0 : colon;
                     break;
-                case 80://стрелочка вниз
+                case 80://Г±ГІГ°ГҐГ«Г®Г·ГЄГ  ГўГ­ГЁГ§
                     line++;
 					line = line > 7 ? 0 : line;
                     break;
@@ -328,7 +309,7 @@ void Menu::Game() {//заготовка для обработки ходов
 				continue;
 			}
 
-			if (select == 1 && tempFigure * board[line][colon] > 0 && board[line][colon] != 1 && board[line][colon] != -1) {//союзник, переставляем выбранную фигуру
+			if (select == 1 && tempFigure * board[line][colon] > 0 && board[line][colon] != 1 && board[line][colon] != -1) {//Г±Г®ГѕГ§Г­ГЁГЄ, ГЇГҐГ°ГҐГ±ГІГ ГўГ«ГїГҐГ¬ ГўГ»ГЎГ°Г Г­Г­ГіГѕ ГґГЁГЈГіГ°Гі
 				tempLine = line;
 				tempColon = colon;
 				tempFigure = board[line][colon];
@@ -336,7 +317,7 @@ void Menu::Game() {//заготовка для обработки ходов
 				continue;
 			}
 
-            if (select == 1) {//если k2 == 1, то шашка была выбрана
+            if (select == 1) {//ГҐГ±Г«ГЁ k2 == 1, ГІГ® ГёГ ГёГЄГ  ГЎГ»Г«Г  ГўГ»ГЎГ°Г Г­Г 
 				if (tempFigure == BlackKing || tempFigure == WhiteKing) {
 					King King;
 					King.startI = tempLine;
@@ -412,13 +393,13 @@ void Menu::Game() {//заготовка для обработки ходов
 				if (move % 2 != 0) {
 					int colorText = 196;
 					set_console_color(colorText, colorBoard);
-					cout << "Выйграл красный! Синим был поставлен мат!" << endl;
+					cout << "Г‚Г»Г©ГЈГ°Г Г« ГЄГ°Г Г±Г­Г»Г©! Г‘ГЁГ­ГЁГ¬ ГЎГ»Г« ГЇГ®Г±ГІГ ГўГ«ГҐГ­ Г¬Г ГІ!" << endl;
 					reset_console_color();
 				}
 				else {
 					int colorText = 123;
 					set_console_color(colorText, colorBoard);
-					cout << "Выйграл синий! Красным был поставлен мат!" << endl;
+					cout << "Г‚Г»Г©ГЈГ°Г Г« Г±ГЁГ­ГЁГ©! ГЉГ°Г Г±Г­Г»Г¬ ГЎГ»Г« ГЇГ®Г±ГІГ ГўГ«ГҐГ­ Г¬Г ГІ!" << endl;
 					reset_console_color();
 				}
 				return;
